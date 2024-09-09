@@ -12,6 +12,7 @@ class CompanyResource extends BaseResource
     /**
      * Search for companies registered in the commercial register by different parameters
      * 
+     * @param array<string, mixed> $filters
      * @return Company[]
      */
     public function search(string $companyName, array $filters = []): array
