@@ -1,0 +1,31 @@
+{
+    "name": "jschwendener/zefix-php",
+    "description": "PHP SDK for the Swiss Zefix REST API",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jschwendener\\Zefix\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jonas Schwendener",
+            "email": "jonas.schwendener@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "saloonphp/saloon": "^3.0",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.35",
+        "phpstan/phpstan": "^1.12"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
