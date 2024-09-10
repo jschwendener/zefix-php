@@ -38,3 +38,6 @@ jobs:
 
             - name: Run test suite
               run: composer run-script test
+              env:
+                ZEFIX_USERNAME: ${{ secrets.ZEFIX_USERNAME }}
+                ZEFIX_PASSWORD: ${{ secrets.ZEFIX_PASSWORD }}
