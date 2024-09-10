@@ -52,10 +52,10 @@ class SearchCompany extends Request implements HasBody
     /**
      * @return Company[]|null
      */
-    public function createDtoFromResponse(Response $response): ?array
+    public function createDtoFromResponse(Response $response): array
     {
         return $response->json()
             ? array_map(fn (array $data) => Company::fromData($data), $response->json())
-            : null;
+            : [];
     }
 }
