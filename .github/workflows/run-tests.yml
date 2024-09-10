@@ -36,8 +36,11 @@ jobs:
             - name: Install dependencies
               run: composer install --prefer-dist --no-progress
 
+            - name: Setup .env file with Zefix credentials
+              run: | 
+                touch .env
+                echo "ZEFIX_USERNAME=${{ secrets.ZEFIX_USERNAME }}" >> .env
+                echo "ZEFIX_PASSWORD=${{ secrets.ZEFIX_PASSWORD }}" >> .env
+
             - name: Run test suite
               run: composer run-script test
-              env:
-                ZEFIX_USERNAME: ${{ secrets.ZEFIX_USERNAME }}
-                ZEFIX_PASSWORD: ${{ secrets.ZEFIX_PASSWORD }}
