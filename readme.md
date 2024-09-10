@@ -1,5 +1,7 @@
 # Zefix PHP SDK
 
+[![Run Pest tests](https://github.com/jschwendener/zefix-php/actions/workflows/run-tests.yml/badge.svg)](https://github.com/jschwendener/zefix-php/actions/workflows/run-tests.yml)
+
 This is a simple PHP wrapper around the [Zefix](https://www.zefix.admin.ch/de/search/entity/welcome) Public [REST API](https://www.zefix.admin.ch/ZefixPublicREST/swagger-ui/index.html) which can be used to search for swiss companies and retrieve their details.
 This package is not affiliated with the Zefix.
 
