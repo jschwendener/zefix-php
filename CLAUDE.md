@@ -1,5 +1,7 @@
 This is a PHP SDK for the Swiss Zefix REST API (company registry). Built on [Saloon PHP](https://docs.saloon.dev/) (v3/v4).
 
+OpenAPI specs available at: https://www.zefix.admin.ch/ZefixPublicREST/v3/api-docs
+
 ## Commands
 
 - **Run all tests:** `composer test` (runs Pest)
