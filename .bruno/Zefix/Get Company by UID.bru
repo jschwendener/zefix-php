@@ -1,0 +1,16 @@
+meta {
+  name: Get Company by UID
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://www.zefix.admin.ch/ZefixPublicREST/api/v1/company/uid/CHE102909703
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{zefix_username}}
+  password: {{zefix_password}}
+}

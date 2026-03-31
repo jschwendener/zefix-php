@@ -1,0 +1,23 @@
+meta {
+  name: Search Company
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://www.zefix.admin.ch/ZefixPublicREST/api/v1/company/search
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{zefix_username}}
+  password: {{zefix_password}}
+}
+
+body:json {
+  {
+    "name": "Strawblond",
+    "activeOnly": true
+  }
+}
