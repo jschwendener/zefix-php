@@ -1,4 +1,4 @@
-name: Run Pest tests
+name: PHP 8.3
 on:
     push:
         branches: ["main"]
@@ -23,17 +23,13 @@ jobs:
         runs-on: ubuntu-latest
         environment: testing
 
-        strategy:
-            matrix:
-                php-version: ["8.2", "8.3", "8.4"]
-
         steps:
             - uses: actions/checkout@v6
 
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: ${{ matrix.php-version }}
+                  php-version: "8.3"
 
             - name: Validate composer.json and composer.lock
               run: composer validate --strict
