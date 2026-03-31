@@ -50,7 +50,7 @@ class SearchCompany extends Request implements HasBody
     }
 
     /**
-     * @return Company[]|null
+     * @return Company[]
      */
     public function createDtoFromResponse(Response $response): array
     {

@@ -3,13 +3,21 @@
 namespace Jschwendener\Zefix\DTO;
 
 use Jschwendener\Zefix\Enums\CompanyStatus;
-use Jschwendener\Zefix\DTO\Address;
-use Jschwendener\Zefix\DTO\LegalForm;
-use Jschwendener\Zefix\DTO\TranslatedString;
 use Saloon\Helpers\ArrayHelpers as Arr;
 
 readonly class Company
 {
+    /**
+     * @param string[] $translation
+     * @param SogcPublication[] $sogcPub
+     * @param Company[] $headOffices
+     * @param Company[] $furtherHeadOffices
+     * @param Company[] $branchOffices
+     * @param Company[] $hasTakenOver
+     * @param Company[] $wasTakenOverBy
+     * @param Company[] $auditCompanies
+     * @param CompanyOldName[] $oldNames
+     */
     public function __construct(
         public string $name,
         public int $ehraid,
@@ -23,6 +31,21 @@ readonly class Company
         public ?string $sogcDate = null,
         public ?string $deletionDate = null,
         public ?Address $address = null,
+        public ?string $purpose = null,
+        public ?string $canton = null,
+        public ?string $capitalNominal = null,
+        public ?string $capitalCurrency = null,
+        public ?string $cantonalExcerptWeb = null,
+        public ?TranslatedString $zefixDetailWeb = null,
+        public array $translation = [],
+        public array $sogcPub = [],
+        public array $headOffices = [],
+        public array $furtherHeadOffices = [],
+        public array $branchOffices = [],
+        public array $hasTakenOver = [],
+        public array $wasTakenOverBy = [],
+        public array $auditCompanies = [],
+        public array $oldNames = [],
     ) {}
 
     /**
@@ -54,7 +77,7 @@ readonly class Company
                     en: Arr::get($data, 'legalForm.shortName.en'),
                 ),
             ) : null,
-            status: CompanyStatus::tryFrom(Arr::get($data, 'status')),
+            status: CompanyStatus::tryFrom(Arr::get($data, 'status') ?? ''),
             sogcDate: Arr::get($data, 'sogcDate'),
             deletionDate: Arr::get($data, 'deletionDate'),
             address: Arr::get($data, 'address') ? new Address(
@@ -67,6 +90,50 @@ readonly class Company
                 city: Arr::get($data, 'address.city'),
                 swissZipCode: Arr::get($data, 'address.swissZipCode'),
             ) : null,
+            purpose: Arr::get($data, 'purpose'),
+            canton: Arr::get($data, 'canton'),
+            capitalNominal: Arr::get($data, 'capitalNominal'),
+            capitalCurrency: Arr::get($data, 'capitalCurrency'),
+            cantonalExcerptWeb: Arr::get($data, 'cantonalExcerptWeb'),
+            zefixDetailWeb: Arr::get($data, 'zefixDetailWeb') ? new TranslatedString(
+                de: Arr::get($data, 'zefixDetailWeb.de'),
+                fr: Arr::get($data, 'zefixDetailWeb.fr'),
+                it: Arr::get($data, 'zefixDetailWeb.it'),
+                en: Arr::get($data, 'zefixDetailWeb.en'),
+            ) : null,
+            translation: Arr::get($data, 'translation') ?? [],
+            sogcPub: array_map(
+                fn (array $pub) => SogcPublication::fromData($pub),
+                Arr::get($data, 'sogcPub') ?? [],
+            ),
+            headOffices: array_map(
+                fn (array $c) => self::fromData($c),
+                Arr::get($data, 'headOffices') ?? [],
+            ),
+            furtherHeadOffices: array_map(
+                fn (array $c) => self::fromData($c),
+                Arr::get($data, 'furtherHeadOffices') ?? [],
+            ),
+            branchOffices: array_map(
+                fn (array $c) => self::fromData($c),
+                Arr::get($data, 'branchOffices') ?? [],
+            ),
+            hasTakenOver: array_map(
+                fn (array $c) => self::fromData($c),
+                Arr::get($data, 'hasTakenOver') ?? [],
+            ),
+            wasTakenOverBy: array_map(
+                fn (array $c) => self::fromData($c),
+                Arr::get($data, 'wasTakenOverBy') ?? [],
+            ),
+            auditCompanies: array_map(
+                fn (array $c) => self::fromData($c),
+                Arr::get($data, 'auditCompanies') ?? [],
+            ),
+            oldNames: array_map(
+                fn (array $n) => CompanyOldName::fromData($n),
+                Arr::get($data, 'oldNames') ?? [],
+            ),
         );
     }
 }
