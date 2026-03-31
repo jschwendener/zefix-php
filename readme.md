@@ -3,6 +3,7 @@
 [![PHP 8.2](https://github.com/jschwendener/zefix-php/actions/workflows/test-php82.yml/badge.svg)](https://github.com/jschwendener/zefix-php/actions/workflows/test-php82.yml)
 [![PHP 8.3](https://github.com/jschwendener/zefix-php/actions/workflows/test-php83.yml/badge.svg)](https://github.com/jschwendener/zefix-php/actions/workflows/test-php83.yml)
 [![PHP 8.4](https://github.com/jschwendener/zefix-php/actions/workflows/test-php84.yml/badge.svg)](https://github.com/jschwendener/zefix-php/actions/workflows/test-php84.yml)
+[![PHP 8.5](https://github.com/jschwendener/zefix-php/actions/workflows/test-php85.yml/badge.svg)](https://github.com/jschwendener/zefix-php/actions/workflows/test-php85.yml)
 
 This is a simple PHP wrapper around the [Zefix](https://www.zefix.admin.ch/de/search/entity/welcome) Public [REST API](https://www.zefix.admin.ch/ZefixPublicREST/swagger-ui/index.html) which can be used to search for swiss companies and retrieve their details.
 This package is not affiliated with the Zefix.
