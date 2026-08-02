@@ -27,8 +27,10 @@ class CompanyResource extends BaseResource
 
     /**
      * Get detailed company info by UID
+     *
+     * Returns null if no company exists for the given UID.
      */
-    public function getByUid(string $uid): Company
+    public function getByUid(string $uid): ?Company
     {
         $uid = str_replace(['-', '.', ' '], '', trim($uid));
 

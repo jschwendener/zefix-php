@@ -53,6 +53,8 @@ $zefix = new Jschwendener\Zefix\Zefix('username', 'password');
 $details = $zefix->company()->getByUid('CHE-123.456.789');
 ```
 
+Returns `null` if no company exists for the given UID.
+
 ## Credits
 This SDK is built using [Saloon PHP](https://docs.saloon.dev/).
 

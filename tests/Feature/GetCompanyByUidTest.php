@@ -7,6 +7,12 @@ use Jschwendener\Zefix\DTO\SogcPublication;
 use Jschwendener\Zefix\DTO\TranslatedString;
 use Jschwendener\Zefix\Enums\CompanyStatus;
 
+it('returns null for a non-existing UID', function () {
+    $result = zefix()->company()->getByUid('CHE-111.111.111');
+
+    expect($result)->toBeNull();
+});
+
 it('gets company details by UID', function () {
     $result = zefix()->company()->getByUid('CHE-110.088.994');
 
